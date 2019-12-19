@@ -41,4 +41,18 @@ public class HelloController {
         return "Hello, " + name + "!";
     }
 
+    //form if not specified otherwise will be submitted via get request
+    @GetMapping("form")
+    @ResponseBody
+    public String helloform(){
+        return "<html>" +
+                "<body>" +
+                "<form action='hello'>" + //submits a request to /hello
+                "<input type='text' name='name'>" + //above the handler accepts the variable name so it works here
+                "<input type='submit' value='Greet me!'>" +
+                "</form>" +
+                "</body>" +
+                "</html>";
+    }
+
 }
