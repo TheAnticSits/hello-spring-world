@@ -2,6 +2,7 @@
 package org.launchcode.hellospringworld.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -9,10 +10,11 @@ public class HelloController {
 
     //Handles request at path /hello
     @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public String hello(@RequestParam String name){
+    public String hello(@RequestParam String name, Model model){
 
-        return "Hello, " + name + "!";
+        String greeting = "Hello, " + name + "!";
+        model.addAttribute("greeting", greeting);
+        return "hello";
     }
 
     @GetMapping("hello/{name}")
