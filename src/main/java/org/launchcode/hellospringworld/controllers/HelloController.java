@@ -42,7 +42,7 @@ public class HelloController {
     // lives at hello/form
     @GetMapping("form")
     public String helloform(){
-        return "<html>" +
+        String html = "<html>" +
                 "<body>" +
                 "<form action='hello' method='post'>" + //submits a request to /hello
                 "<input type='text' name='name'>" + //above the handler accepts the variable name so it works here
@@ -50,6 +50,7 @@ public class HelloController {
                 "</form>" +
                 "</body>" +
                 "</html>";
+        return html;
     }
 
 }
